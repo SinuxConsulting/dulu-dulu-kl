@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm, nostalgic Malaysian cafe palette - Enhanced contrast */
+    --background: 40 33% 97%;
+    --foreground: 25 35% 12%;
+
+    --card: 40 40% 99%;
+    --card-foreground: 25 35% 12%;
+
+    --popover: 40 40% 99%;
+    --popover-foreground: 25 35% 12%;
+
+    /* Warm terracotta/rust primary - slightly darker for better contrast */
+    --primary: 18 65% 38%;
+    --primary-foreground: 40 33% 98%;
+
+    /* Cream secondary */
+    --secondary: 38 35% 92%;
+    --secondary-foreground: 25 35% 18%;
+
+    --muted: 35 25% 90%;
+    --muted-foreground: 25 20% 38%;
+
+    /* Sage green accent - darker for better readability */
+    --accent: 145 30% 32%;
+    --accent-foreground: 40 33% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 20% 78%;
+    --input: 35 20% 78%;
+    --ring: 18 65% 38%;
+
+    --radius: 0.75rem;
+
+    /* Custom cafe colors - enhanced for readability */
+    --rust: 18 65% 38%;
+    --rust-light: 20 55% 50%;
+    --cream: 40 50% 96%;
+    --cream-dark: 38 35% 88%;
+    --brown-dark: 25 35% 12%;
+    --brown-light: 25 25% 28%;
+    --sage: 145 30% 32%;
+    --sage-light: 145 25% 45%;
+    --gold: 38 75% 48%;
+
+    /* Sidebar */
+    --sidebar-background: 40 40% 99%;
+    --sidebar-foreground: 25 35% 12%;
+    --sidebar-primary: 18 65% 38%;
+    --sidebar-primary-foreground: 40 33% 98%;
+    --sidebar-accent: 35 25% 90%;
+    --sidebar-accent-foreground: 25 35% 12%;
+    --sidebar-border: 35 20% 78%;
+    --sidebar-ring: 18 65% 38%;
+  }
+
+  .dark {
+    --background: 25 30% 8%;
+    --foreground: 40 35% 94%;
+
+    --card: 25 25% 12%;
+    --card-foreground: 40 35% 94%;
+
+    --popover: 25 25% 12%;
+    --popover-foreground: 40 35% 94%;
+
+    --primary: 20 60% 52%;
+    --primary-foreground: 25 30% 8%;
+
+    --secondary: 25 22% 16%;
+    --secondary-foreground: 40 35% 94%;
+
+    --muted: 25 20% 18%;
+    --muted-foreground: 35 18% 58%;
+
+    --accent: 145 25% 42%;
+    --accent-foreground: 25 30% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 35% 94%;
+
+    --border: 25 20% 20%;
+    --input: 25 20% 20%;
+    --ring: 20 60% 52%;
+
+    --rust: 20 60% 52%;
+    --rust-light: 22 55% 62%;
+    --cream: 40 25% 18%;
+    --cream-dark: 38 20% 14%;
+    --brown-dark: 40 35% 94%;
+    --brown-light: 35 22% 68%;
+    --sage: 145 25% 42%;
+    --sage-light: 145 22% 52%;
+    --gold: 38 65% 52%;
+
+    --sidebar-background: 25 25% 10%;
+    --sidebar-foreground: 40 35% 94%;
+    --sidebar-primary: 20 60% 52%;
+    --sidebar-primary-foreground: 25 30% 8%;
+    --sidebar-accent: 25 20% 16%;
+    --sidebar-accent-foreground: 40 35% 94%;
+    --sidebar-border: 25 20% 20%;
+    --sidebar-ring: 20 60% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-sans {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-rust-light bg-clip-text text-transparent;
+  }
+
+  .bg-texture {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8956e' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--cream));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--rust) / 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--rust) / 0.6);
+}
